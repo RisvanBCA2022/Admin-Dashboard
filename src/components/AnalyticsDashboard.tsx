@@ -19,6 +19,8 @@ const Badge = ({ percentage }: { percentage: number }) => {
 
   if (isNaN(percentage)) return null
 
+  
+
   const positiveClassname = 'bg-green-900/25 text-green-400 ring-green-400/25'
   const neutralClassname = 'bg-zinc-900/25 text-zinc-400 ring-zinc-400/25'
   const negativeClassname = 'bg-red-900/25 text-red-400 ring-red-400/25'
@@ -46,6 +48,8 @@ const AnalyticsDashboard = ({
   timeseriesPageviews,
   topCountries,
 }: AnalyticsDashboardProps) => {
+    console.log(topCountries);
+    
   return (
     <div className='flex flex-col gap-6'>
       <div className='grid w-full mx-auto grid-cols-1 sm:grid-cols-2 gap-6'>
