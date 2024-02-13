@@ -64,7 +64,7 @@ const Page = async () => {
       <div className='relative w-full max-w-6xl mx-auto text-white'>
         <AnalyticsDashboard
           avgVisitorsPerDay={avgVisitorsPerDay}
-          avgVisitorsToday={amtVisitorsToday}
+          amtVisitorsToday={amtVisitorsToday}
           timeseriesPageviews={pageviews}
           topCountries={topCountries}
         />

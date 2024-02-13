@@ -7,7 +7,7 @@ import ReactCountryFlag from 'react-country-flag'
 
 interface AnalyticsDashboardProps {
   avgVisitorsPerDay: string
-  avgVisitorsToday: number
+  amtVisitorsToday: number
   timeseriesPageviews: Awaited<ReturnType<typeof analytics.retrieveDays>>
   topCountries: [string, number][]
 }
@@ -18,8 +18,6 @@ const Badge = ({ percentage }: { percentage: number }) => {
   const isNegative = percentage < 0
 
   if (isNaN(percentage)) return null
-
-  
 
   const positiveClassname = 'bg-green-900/25 text-green-400 ring-green-400/25'
   const neutralClassname = 'bg-zinc-900/25 text-zinc-400 ring-zinc-400/25'
@@ -44,12 +42,10 @@ const Badge = ({ percentage }: { percentage: number }) => {
 
 const AnalyticsDashboard = ({
   avgVisitorsPerDay,
-  avgVisitorsToday,
+  amtVisitorsToday,
   timeseriesPageviews,
   topCountries,
 }: AnalyticsDashboardProps) => {
-    console.log(topCountries);
-    
   return (
     <div className='flex flex-col gap-6'>
       <div className='grid w-full mx-auto grid-cols-1 sm:grid-cols-2 gap-6'>
@@ -66,12 +62,12 @@ const AnalyticsDashboard = ({
             Visitors today
             <Badge
               percentage={
-                (avgVisitorsToday / Number(avgVisitorsPerDay) - 1) * 100
+                (amtVisitorsToday / Number(avgVisitorsPerDay) - 1) * 100
               }
             />
           </p>
           <p className='text-3xl text-dark-tremor-content-strong font-semibold'>
-            {avgVisitorsToday}
+            {amtVisitorsToday}
           </p>
         </Card>
       </div>
